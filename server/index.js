@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-
+// mgdb alat: congdeptrai
 const authRouter = require("./routes/auth");
 const postRouter = require("./routes/post");
 
@@ -17,7 +17,7 @@ const connectDB = async () => {
         useFindAndModify: false,
       }
     );
-
+      // neu loi address thi vao MongoDB Atlas -> NetworkAccess -> xoa 1 address va them 1 address khac
     console.log("MongoDB connected");
   } catch (error) {
     console.log(error.message);
