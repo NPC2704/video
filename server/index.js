@@ -5,7 +5,8 @@ const cors = require("cors");
 // mgdb alat: congdeptrai
 const authRouter = require("./routes/auth");
 const postRouter = require("./routes/post");
-
+const PORT = process.env.PORT || 5000;
+mongoose.set('strict',false)
 const connectDB = async () => {
   try {
     await mongoose.connect(
@@ -30,10 +31,12 @@ connectDB();
 const app = express();
 app.use(express.json());
 app.use(cors());
-
+app.get('/', (req,res) => {
+  res.send({ title: 'Books' });
+})
 app.use("/api/auth", authRouter);
 app.use("/api/posts", postRouter);
 
-const PORT = process.env.PORT || 5000;
+
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
