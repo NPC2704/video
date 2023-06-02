@@ -31,10 +31,10 @@ const Dashboard = () => {
   } = useContext(PostContext);
 
   // Start: Get all posts
-  useEffect(() => {
-    getPosts();
-  }, []);
-
+  // useEffect(() => {
+  //   getPosts();
+  // }, []);
+  useEffect(() => getPosts(), []);
   let body = null;
 
   if (postsLoading) {

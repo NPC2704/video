@@ -32,7 +32,7 @@ const PostContextProvider = ({ children }) => {
   // Get all posts
   const getPosts = async () => {
     try {
-      const response = await axios.get(`${apiUrl}/posts`);
+      const response = await axios.get(`https://viridian-hedgehog-sock.cyclic.app/api/posts`);
       if (response.data.success) {
         dispatch({ type: POSTS_LOADED_SUCCESS, payload: response.data.posts });
       }
@@ -44,7 +44,7 @@ const PostContextProvider = ({ children }) => {
   //Add post
   const addPost = async (newPost) => {
     try {
-      const response = await axios.post(`${apiUrl}/posts`, newPost);
+      const response = await axios.post(`https://viridian-hedgehog-sock.cyclic.app/api/posts`, newPost);
       if (response.data.success) {
         dispatch({ type: ADD_POST, payload: response.data.post });
         return response.data;
@@ -59,7 +59,7 @@ const PostContextProvider = ({ children }) => {
   // Delete post
   const deletePost = async (postId) => {
     try {
-      const response = await axios.delete(`${apiUrl}/posts/${postId}`);
+      const response = await axios.delete(`https://viridian-hedgehog-sock.cyclic.app/api/posts/${postId}`);
       if (response.data.success)
         dispatch({ type: DELETE_POST, payload: postId });
     } catch (error) {
@@ -77,7 +77,7 @@ const PostContextProvider = ({ children }) => {
   const updatePost = async (updatedPost) => {
     try {
       const response = await axios.put(
-        `${apiUrl}/posts/${updatedPost._id}`,
+        `https://viridian-hedgehog-sock.cyclic.app/api/posts/${updatedPost._id}`,
         updatedPost
       );
       if (response.data.success) {
